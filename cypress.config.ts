@@ -28,12 +28,18 @@ async function setupNodeEvents(
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'https://test-automation.odoo.com',
-    specPattern: "./cypress/e2e/features/*.feature",
+    baseUrl: 'http://localhost',
+    specPattern: ["./cypress/ui/e2e/features/*.feature", "./cypress/api/e2e/features/*.feature"],
     setupNodeEvents,
     env: {
-      username: process.env.ODOO_USERNAME,
-      password: process.env.ODOO_PASSWORD,
+      UI_BASE_URL: process.env.UI_BASE_URL,
+      UI_USERNAME: process.env.UI_USERNAME,
+      UI_PASSWORD: process.env.UI_PASSWORD,
+      API_BASE_URL: process.env.API_BASE_URL,
+      API_ADMIN_USERNAME: process.env.API_ADMIN_USERNAME,
+      API_ADMIN_PASSWORD: process.env.API_ADMIN_PASSWORD,
+      API_USER_USERNAME: process.env.API_USER_USERNAME,
+      API_USER_PASSWORD: process.env.API_USER_PASSWORD,
     },
   },
 });
