@@ -1,8 +1,10 @@
 {
     "cucumber.features": [
-        "cypress/e2e/features/*.feature"
+        "cypress/ui/e2e/features/*.feature",
+        "cypress/api/e2e/features/*.feature"
     ], "cucumber.glue": [
-        "cypress/e2e/step_definitions/*.ts",
+        "cypress/ui/e2e/step_definitions/*.ts",
+        "cypress/api/e2e/step_definitions/*.ts",
         "cypress/support/step_definitions/*.ts"
     ],
 }
