@@ -38,13 +38,11 @@ jobs:
       - name: Cypress run database setup
         uses: cypress-io/github-action@v6
         with:
-          record: true
           tag: '@setup-database'
           
       - name: Cypress run app setup
         uses: cypress-io/github-action@v6
         with:
-          record: true
           tag: '@setup-app'
       
       - name: Cypress run
