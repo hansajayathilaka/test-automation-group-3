@@ -36,7 +36,6 @@ class NewReceiptCreationPage{
       cy.contains('.o_date_item_cell', '2').click(); 
       cy.get('#origin_0').type('PO00032'); 
   
-  
       // Fill the details in Operations Tab
       cy.contains('Operations').get('a[name="operations"]').click();
       cy.contains('Add a line').click();
@@ -78,7 +77,6 @@ class NewReceiptCreationPage{
           cy.log('Receipt downloaded successfully');
         });
     }
-    
 }
 
 export default new NewReceiptCreationPage()
