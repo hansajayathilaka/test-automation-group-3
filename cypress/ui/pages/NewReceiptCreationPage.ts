@@ -1,5 +1,5 @@
-class NewReceiptCreationPage{
-    visitNewReceiptCreationPage(){
+class NewReceiptCreationPage {
+    visitNewReceiptCreationPage() {
       cy.visit('/odoo/inventory');
 
         //User clicks on the Open button for Receipts section
@@ -15,7 +15,7 @@ class NewReceiptCreationPage{
         });
     }
 
-    CreateNewReceipt(){
+    createNewReceipt() {
         cy.get(".btn.btn-primary.o_list_button_add").click();
         
         //Verify the New Receipt Window
@@ -79,4 +79,4 @@ class NewReceiptCreationPage{
     }
 }
 
-export default new NewReceiptCreationPage()
+export default new NewReceiptCreationPage();
