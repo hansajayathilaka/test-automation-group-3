@@ -16,13 +16,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start services
-        run: docker-compose --file ./src/docker-compose.yaml up -d
-      
+        run: docker compose --file ./src/docker-compose.yaml up -d
+
       - name: Wait for services to start
         run: sleep 10
-      
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
 
       - name: Stop services
-        run: docker-compose --file ./src/docker-compose.yaml down
+        run: docker compose --file ./src/docker-compose.yaml down
