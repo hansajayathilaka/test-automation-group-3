@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "UI_BASE_URL=http://localhost:8069" > .env
           echo "UI_USERNAME=admin.user@example.com" >> .env
-          echo "UI_PASSWORD=Password123" >> .env
+          echo "UI_PASSWORD=AdminUser@B20L4S1" >> .env
           echo "API_BASE_URL=http://localhost:7081" >> .env
           echo "API_ADMIN_USERNAME=admin" >> .env
           echo "API_ADMIN_PASSWORD=password" >> .env
