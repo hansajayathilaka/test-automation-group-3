@@ -29,7 +29,10 @@ async function setupNodeEvents(
 export default defineConfig({
   e2e: {
     baseUrl: 'http://localhost',
-    specPattern: ["./cypress/ui/e2e/features/*.feature", "./cypress/api/e2e/features/*.feature"],
+    specPattern: [
+      "./cypress/ui/e2e/features/*.feature",
+      "./cypress/api/e2e/features/*.feature",
+    ],
     setupNodeEvents,
     env: {
       UI_BASE_URL: process.env.UI_BASE_URL,
