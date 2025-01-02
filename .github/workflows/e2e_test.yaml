@@ -1,0 +1,28 @@
+name: E2E Testing
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - dev
+jobs:
+  e2e_test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Start services
+        run: docker-compose --file ./src/docker-compose.yaml up -d
+      
+      - name: Wait for services to start
+        run: sleep 10
+      
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+
+      - name: Stop services
+        run: docker-compose --file ./src/docker-compose.yaml down
