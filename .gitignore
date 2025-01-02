@@ -4,4 +4,5 @@ node_modules
 # Cypress specific
 cypress/reports/*
 cypress/screenshots/*
+cypress/videos/*
 cypress/downloads/*

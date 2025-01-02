@@ -16,7 +16,6 @@ class AppsPage {
                 cy.log('Inventory app already installed');
             }
         });
-
     }
 
     checkInventoryAppInstalled() {
