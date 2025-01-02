@@ -19,15 +19,15 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Setup env file
-        run: echo "UI_BASE_URL=http://localhost:8069
-            UI_USERNAME=admin.user@example.com
-            UI_PASSWORD=AdminUser@B20L4S1
-            API_BASE_URL=http://localhost:7081
-            API_ADMIN_USERNAME=admin
-            API_ADMIN_PASSWORD=password
-            API_USER_USERNAME=user
-            API_USER_PASSWORD=password
-            " > .env
+        run: |
+          echo "UI_BASE_URL=http://localhost:8069" > .env
+          echo "UI_USERNAME=admin.user@example.com" >> .env
+          echo "UI_PASSWORD=Password123" >> .env
+          echo "API_BASE_URL=http://localhost:7081" >> .env
+          echo "API_ADMIN_USERNAME=admin" >> .env
+          echo "API_ADMIN_PASSWORD=password" >> .env
+          echo "API_USER_USERNAME=user" >> .env
+          echo "API_USER_PASSWORD=password" >> .env
 
       - name: Start services
         run: docker compose --file ./src/docker-compose.yaml up -d
