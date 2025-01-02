@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      cy-verify-downloads:
+        specifier: ^0.2.6
+        version: 0.2.6
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -782,6 +785,9 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  cy-verify-downloads@0.2.6:
+    resolution: {integrity: sha512-OvFstJMeVelGw+dvi3ON33mvRKmlvVeODNwimM6mbieMmQKZok+bkWRjIVB9kX3sPoGRJDKKiUm+TH+d7N3BIA==}
 
   cypress@13.17.0:
     resolution: {integrity: sha512-5xWkaPurwkIljojFidhw8lFScyxhtiFHl/i/3zov+1Z5CmY4t9tjIdvSXfu82Y3w7wt0uR9KkucbhkVvJZLQSA==}
@@ -3128,6 +3134,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  cy-verify-downloads@0.2.6: {}
 
   cypress@13.17.0:
     dependencies:
