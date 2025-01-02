@@ -28,7 +28,7 @@ async function setupNodeEvents(
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'http://localhost',
+    baseUrl: 'http://localhost:8069',
     specPattern: [
       "./cypress/ui/e2e/features/*.feature",
       "./cypress/api/e2e/features/*.feature",
