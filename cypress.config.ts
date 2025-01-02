@@ -7,8 +7,6 @@ import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
 import { verifyDownloadTasks } from "cy-verify-downloads";
-// import { polyfillNode } from "esbuild-plugin-polyfill-node";
-
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
