@@ -1,8 +1,7 @@
 Feature: Verify the New Receipt Creation when there are no Receipts Created
 
-  Scenario: Create a new receipt when no receipts are available
+  Scenario: Create new receipt when no receipts are available
     Given User logged in as an inventory admin
-    When No Receipts are available
-    Then User should be able to create a new receipt
-
-   
+    When User visits the Receipts create page
+    And User creates a new receipt with valid data
+    Then User should be able to see the receipt created successfully

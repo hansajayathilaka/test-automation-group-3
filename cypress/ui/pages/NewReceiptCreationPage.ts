@@ -1,6 +1,6 @@
 class NewReceiptCreationPage{
-    checkReceiptsWindow(){
-        cy.visit('/odoo/inventory');
+    visitNewReceiptCreationPage(){
+      cy.visit('/odoo/inventory');
 
         //User clicks on the Open button for Receipts section
         cy.get("body > div.o_action_manager > div > div.o_content > div > article:nth-child(1) > div.px-2 > div.row.mt-3 > div:nth-child(1) > button").click();
@@ -13,7 +13,7 @@ class NewReceiptCreationPage{
         columns.forEach(column => {
           cy.contains(column).should('exist'); // Check all table columns
         });
-    }  
+    }
 
     CreateNewReceipt(){
         cy.get(".btn.btn-primary.o_list_button_add").click();
@@ -60,8 +60,25 @@ class NewReceiptCreationPage{
   
       // Print receipt
       cy.get('button[name="209"]').contains('Print').click();
-  
     }
+
+    checkReceiptCreation() {
+      cy.get('body > div.o_action_manager > div > div > div.o_content > div > div.o_form_sheet_bg > div.o_form_sheet.position-relative > div.oe_title > h1 > div.o_field_widget.o_readonly_modifier.o_field_char > span')
+        .invoke('text')
+        .then((innerText) => {
+          // Convert the innerText by replacing '/' with '_'
+          const formattedText = innerText.replace(/\//g, "_");
+    
+          // Construct the folder name
+          const folderName = `Delivery Slip -  - ${formattedText}`;
+          cy.log(`Folder Name: ${folderName}`);
+    
+          // Use the folder name for verifying the download
+          cy.verifyDownload(`${folderName}.pdf`);
+          cy.log('Receipt downloaded successfully');
+        });
+    }
+    
 }
 
 export default new NewReceiptCreationPage()
