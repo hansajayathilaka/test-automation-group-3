@@ -1,15 +1,15 @@
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import NewReceiptCreationPage from '../../pages/NewReceiptCreationPage';
+import newReceiptCreationPage from '../../pages/NewReceiptCreationPage';
 
 When("User visits the Receipts create page",()=>{
-    NewReceiptCreationPage.visitNewReceiptCreationPage();
+    newReceiptCreationPage.visitNewReceiptCreationPage();
 })
 
 When("User creates a new receipt with valid data",()=>{
-    NewReceiptCreationPage.CreateNewReceipt();
+    newReceiptCreationPage.createNewReceipt();
 })
 
 Then("User should be able to see the receipt created successfully",()=>{        
-    NewReceiptCreationPage.checkReceiptCreation();
+    newReceiptCreationPage.checkReceiptCreation();
 })
 
