@@ -1,3 +1,4 @@
+@setup-app
 Feature: Install Inventory App
 
   Scenario: Install Inventory App If Not Installed

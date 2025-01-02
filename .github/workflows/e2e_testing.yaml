@@ -24,6 +24,20 @@ jobs:
       - name: Wait for services to start
         run: sleep 10
 
+      - name: Cypress run database setup
+        uses: cypress-io/github-action@v6
+        with:
+          record: false
+          parallel: true
+          tag: '@setup-database'
+          
+      - name: Cypress run app setup
+        uses: cypress-io/github-action@v6
+        with:
+          record: false
+          parallel: true
+          tag: '@setup-app'
+      
       - name: Cypress run
         uses: cypress-io/github-action@v6
 
