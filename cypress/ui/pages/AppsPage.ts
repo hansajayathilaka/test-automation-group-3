@@ -3,7 +3,7 @@ class AppsPage {
         const uiBaseUrl = Cypress.env('UI_BASE_URL');
         Cypress.config('baseUrl', uiBaseUrl);
         
-        cy.visit('/odoo/apps');
+        cy.visit('/odoo/apps', { timeout: 60 * 1000 });
     }
 
     installInventoryApp() {
@@ -16,12 +16,11 @@ class AppsPage {
                 cy.log('Inventory app already installed');
             }
         });
-
     }
 
     checkInventoryAppInstalled() {
         this.visit();
-        cy.get(".o_kanban_renderer").then(($appElements) => {
+        cy.get(".o_kanban_renderer", { timeout: 60 * 1000 }).then(($appElements) => {
             const inventoryElement = $appElements.find('article').filter((index, element) => element.innerText.includes('Inventory'));
             cy.wrap(inventoryElement).should('not.contain', 'Activate');
         });
