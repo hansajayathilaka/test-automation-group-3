@@ -1,4 +1,3 @@
-@setup-database
 Feature: Create Database
 
   Scenario: Create a database if not exists

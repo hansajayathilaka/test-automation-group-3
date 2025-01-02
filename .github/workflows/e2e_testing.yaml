@@ -38,15 +38,28 @@ jobs:
       - name: Cypress run database setup
         uses: cypress-io/github-action@v6
         with:
-          tag: '@setup-database'
-          
+          spec: cypress/ui/e2e/features/databaseManager.feature
+
       - name: Cypress run app setup
         uses: cypress-io/github-action@v6
         with:
-          tag: '@setup-app'
-      
+          spec: cypress/ui/e2e/features/apps.feature
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-reports
+          path: cypress/reports/cucumber-report.html
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: cypress/screenshots
 
       - name: Stop services
         run: docker compose --file ./src/docker-compose.yaml down
