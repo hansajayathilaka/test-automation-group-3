@@ -7,6 +7,8 @@ import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import { createEsbuildPlugin } from "@badeball/cypress-cucumber-preprocessor/esbuild";
 import { verifyDownloadTasks } from "cy-verify-downloads";
+// @ts-ignore
+import { polyfillNode } from "esbuild-plugin-polyfill-node";
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
@@ -20,7 +22,7 @@ async function setupNodeEvents(
   on(
     "file:preprocessor",
     createBundler({
-      plugins: [createEsbuildPlugin(config)],
+      plugins: [polyfillNode({ polyfills: { crypto: true } }), createEsbuildPlugin(config)],
     }),
   );
 
@@ -30,7 +32,8 @@ async function setupNodeEvents(
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'http://localhost',
+    video: true,
+    baseUrl: 'http://localhost:8069',
     specPattern: [
       "./cypress/ui/e2e/features/*.feature",
       "./cypress/api/e2e/features/*.feature",
