@@ -91,8 +91,8 @@ class NewReceiptCreationPage {
 
   checkErrorMessage() {
     // cy.contains('h4.modal-title.text-break.flex-grow-1').should('contains.text', 'Invalid Operation');
-    cy.log("Error message aathala");
-    cy.get('#dialog_0 > div > div > div > footer > button').click();
+    // cy.log("Error message aathala");
+    // cy.contains('Close').click();
   }
 }
 

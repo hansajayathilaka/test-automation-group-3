@@ -8,7 +8,7 @@ When("User visits the Receipts create page", () => {
 When("User creates a new receipt with valid data", () => {
     newReceiptCreationPage.createNewReceipt();
     newReceiptCreationPage.fillReceiptDetails();
-    newReceiptCreationPage.addProductToOperationsTab('Cheese Cake', 1);
+    newReceiptCreationPage.addProductToOperationsTab('Laptop', 1);
     newReceiptCreationPage.clickMarkasTodoButton();
     newReceiptCreationPage.clickValidateButton();
     newReceiptCreationPage.printReceipt();
