@@ -56,8 +56,8 @@ class NewDeliveryCreationPage {
         // - Source Document: Type an example text
         cy.get('[placeholder="e.g. PO0032"]').type('PO0032');
         // - Select the Options tab
-        cy.contains('Add a line').click().type('laptop');
-        cy.contains('Create "laptop"').click();
+        cy.contains('Add a line').click().type('mouse');
+        cy.contains('Create "mouse"').click();
         // - Demand: Type "2"
         cy.get('[inputmode="decimal"]').click().type('2');
         // - Click on the "Deliveries" navigation link
