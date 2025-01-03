@@ -10,11 +10,19 @@ Then("User should go to the replenishment list page", () => {
 });
 
 When('User click on the create new replenishment button', () => {
-    procurementReplenishmentListPage.clickCreateNewReplenishmentButton();
+    procurementReplenishmentListPage.clickOnButton(".o_list_button_add");
 });
 
 Then('User should see new row in the replenishment list', () => {
-    procurementReplenishmentListPage.checkNewRowInReplenishmentList();
+    procurementReplenishmentListPage.checkRowInReplenishmentList(1);
+})
+
+When('User clicks on the discard button', () => {
+    procurementReplenishmentListPage.clickOnButton(".o_list_button_discard");
+})
+
+Then('User should see the new row removed from the replenishment list', () => {
+    procurementReplenishmentListPage.checkRowInReplenishmentList(0);
 })
 
 When('User selects a product from the new row', () => {
@@ -39,7 +47,29 @@ When('User specifies the minimum quantity below the onhand quantity', () => {
 
 Then('User should see only the Snooze button', () => {
     procurementReplenishmentListPage.validateButton("Snooze");
-    })
+})
+
+When('User specifies the minimum quantity over the onhand quantity', () => {
+    procurementReplenishmentListPage.specifyQuantity("product_min_qty", "12");
+})
+
+Then('User should see the Automate button', () => {
+    procurementReplenishmentListPage.validateButton("Automate");
+})
+
+Then('User should see the Order button', () => {
+    procurementReplenishmentListPage.validateButton("Order");
+})
+
+Then('User should see the Snooze button', () => {
+    procurementReplenishmentListPage.validateButton("Snooze");
+})
+
+
+
+
+
+
 
 
 
