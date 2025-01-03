@@ -1,5 +1,5 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
-import InitialInventoryOverviewPage from "../../pages/inventoryOverviewPage";
+import InitialInventoryOverviewPage from "../../pages/InventoryOverviewPage";
 
 When("User visits the Inventory Overview Page", () => {
   InitialInventoryOverviewPage.visit();
