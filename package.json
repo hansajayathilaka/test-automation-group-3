@@ -6,7 +6,8 @@
     "cypress:runner": "cypress open --e2e --browser chrome",
     "cypress:execution": "cypress run --spec cypress/*/e2e/features/*",
     "cypress:execution-ui": "cypress run --spec cypress/ui/e2e/features/*",
-    "cypress:execution-api": "cypress run --spec cypress/api/e2e/features/*"
+    "cypress:execution-api": "cypress run --spec cypress/api/e2e/features/*",
+    "cypress:execution-setup": "cypress run --spec cypress/ui/e2e/features/databaseManager.feature cypress/ui/e2e/features/apps.feature"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +17,9 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@types/cypress-cucumber-preprocessor": "^4.0.5",
     "@types/node": "^22.10.2",
+    "cy-verify-downloads": "^0.2.6",
     "cypress": "^13.17.0",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
     "typescript": "^5.7.2"
   },
   "dependencies": {
@@ -27,6 +30,16 @@
     "stepDefinitions": [
       "cypress/ui/e2e/step_definitions/*.{js,ts}",
       "cypress/api/e2e/step_definitions/*.{js,ts}"
-    ]
-  }
+    ],
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-report.html"
+    },
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-report.json"
+    },
+    "nonGlobalStepDefinitions": true
+  },
+  "packageManager": "pnpm@9.13.2"
 }
