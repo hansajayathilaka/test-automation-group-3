@@ -26,6 +26,23 @@ class ProductViewPage {
     // });
     cy.log("Message Verified Successfully!");
   }
+
+  selectAllProduct() {
+    cy.get("nav.o_cp_switch_buttons > button.o_list").click();
+    cy.get("body > div.o_action_manager > div > div.o_content > div > table > thead > tr > th.o_list_record_selector.o_list_controller.align-middle.pe-1.cursor-pointer > div > input").check();
+  }
+
+  deleteSelectedProducts() {
+    cy.get(".o_control_panel_actions").then(($el) => {
+      if ($el.find(".o_list_selection_box").length > 0) {
+          cy.get(".o_cp_action_menus").click();
+          cy.get(".o_popover > span.o-dropdown-item").contains("Delete").click();
+          cy.get(".modal-footer > button.btn-primary").click();
+      } else {
+          cy.log("No product selected to delete");
+      }
+  });
+  }
 }
 
 export default new ProductViewPage();
