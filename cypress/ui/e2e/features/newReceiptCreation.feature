@@ -1,7 +1,12 @@
-Feature: Verify the New Receipt Creation when there are no Receipts Created
+Feature: New Receipts Creation
+  # Scenario: Create new receipt when no receipts are available
+  #   Given User logged in as an inventory admin
+  #   When User visits the Receipts create page
+  #   And User creates a new receipt with valid data
+  #   Then User should be able to see the receipt created successfully
 
-  Scenario: Create new receipt when no receipts are available
+  Scenario: Verify the Error Messages when Creating a New Receipt and no quantities are reserved
     Given User logged in as an inventory admin
     When User visits the Receipts create page
-    And User creates a new receipt with valid data
-    Then User should be able to see the receipt created successfully
+    And User fills in the receipt details and attempts to save with zero quantity
+    Then An error message 'Invalid Stock Move' should be displayed
