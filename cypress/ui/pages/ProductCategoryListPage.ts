@@ -34,9 +34,15 @@ class ProductCategoryListPage {
     }
 
     deleteSelectedProductCategories() {
-        cy.get(".o_cp_action_menus").click();
-        cy.get(".o_popover > span.o-dropdown-item").contains("Delete").click();
-        cy.get(".modal-footer > button.btn-primary").click();
+        cy.get("o_control_panel_actions").then(($el) => {
+            if ($el.find(".o_list_selection_box").length === 0) {
+                cy.get(".o_cp_action_menus").click();
+                cy.get(".o_popover > span.o-dropdown-item").contains("Delete").click();
+                cy.get(".modal-footer > button.btn-primary").click();
+            } else {
+                cy.log("No product category selected to delete");
+            }
+        });
     }
 
     editProductCategory(name: string) {

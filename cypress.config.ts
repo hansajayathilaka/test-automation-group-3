@@ -49,6 +49,6 @@ export default defineConfig({
       API_USER_USERNAME: process.env.API_USER_USERNAME,
       API_USER_PASSWORD: process.env.API_USER_PASSWORD,
     },
-    defaultCommandTimeout: 60000,
+    defaultCommandTimeout: 10000,
   },
 });
