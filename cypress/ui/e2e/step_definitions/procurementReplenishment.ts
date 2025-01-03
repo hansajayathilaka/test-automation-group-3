@@ -22,8 +22,18 @@ When('User selects a product from the new row', () => {
 })
 
 Then('Product details should be displayed in the replenishment form', () => {
-    procurementReplenishmentListPage.validateProductDetailsInReplenishmentForm();
+    procurementReplenishmentListPage.validateProductDetailsInReplenishmentForm("Replenishment Test Product");
 })
+
+Then('User should see the on hand quantity of the product', () => {
+    procurementReplenishmentListPage.validateOnHandQuantity("10.00");
+})
+
+Then('User should see the forecast quantity of the product', () => {
+    procurementReplenishmentListPage.validateForecastQuantity("10.00");
+})
+
+
 
 
 
