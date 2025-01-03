@@ -26,6 +26,6 @@ When("User fills in the receipt details and attempts to save with zero quantity"
     newReceiptCreationPage.clickValidateButton();
 });
 
-Then("An error message 'Invalid Stock Move' should be displayed", () => {
+Then("An error message should be displayed", () => {
     newReceiptCreationPage.checkErrorMessage();
 });

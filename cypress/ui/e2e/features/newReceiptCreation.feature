@@ -9,4 +9,4 @@ Feature: New Receipts Creation
     Given User logged in as an inventory admin
     When User visits the Receipts create page
     And User fills in the receipt details and attempts to save with zero quantity
-    Then An error message 'Invalid Stock Move' should be displayed
+    Then An error message should be displayed
