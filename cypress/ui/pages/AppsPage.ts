@@ -12,7 +12,7 @@ class AppsPage {
             if (inventoryElement.find('button:contains("Activate")').length > 0) {
                 const activateButton = inventoryElement.find('button').filter((index, button) => button.innerText.includes('Activate'));
                 cy.wrap(activateButton).click();
-                cy.wait(60000);
+                cy.wait(10000);
             } else {
                 cy.log('Inventory app already installed');
             }

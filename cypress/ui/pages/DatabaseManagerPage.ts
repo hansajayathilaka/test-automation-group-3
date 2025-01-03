@@ -14,7 +14,6 @@ class DatabaseManagerPage {
                     cy.get('#login').type(data.adminEmail);
                     cy.get('#password').type(data.adminPassword);
                     cy.get('input.btn:nth-child(10)').click();
-                    cy.wait(60000);
                     this.visit();
                 });
             } else {

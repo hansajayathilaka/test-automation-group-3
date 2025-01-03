@@ -41,14 +41,7 @@ When("User update the product category with name {string} to {string}", (oldName
 });
 
 After({ tags: "@product-category" }, () => {
-    // Delete all product categories
     ProductCategoryListPage.visit();
     ProductCategoryListPage.selectAllProductCategoriesExceptDefaults();
     ProductCategoryListPage.deleteSelectedProductCategories();
-
-    // Create a default product category
-    ProductCategoryCreatePage.visit();
-    ProductCategoryCreatePage.fillName("All");
-    ProductCategoryCreatePage.fillRemovalStrategy("fifo");
-    ProductCategoryCreatePage.clickSaveButton();
 });
