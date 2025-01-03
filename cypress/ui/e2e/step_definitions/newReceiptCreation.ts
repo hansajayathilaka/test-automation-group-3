@@ -7,8 +7,24 @@ When("User visits the Receipts create page", () => {
 
 When("User creates a new receipt with valid data", () => {
     newReceiptCreationPage.createNewReceipt();
+    newReceiptCreationPage.fillReceiptDetails();
+    newReceiptCreationPage.addProductToOperationsTab('Laptop', 1);
+    newReceiptCreationPage.clickMarkasTodoButton();
+    newReceiptCreationPage.clickValidateButton();
+    newReceiptCreationPage.printReceipt();
 });
 
-Then("User should be able to see the receipt created successfully", () => {        
+Then("User should be able to see the receipt created successfully", () => {
     newReceiptCreationPage.checkReceiptCreation();
+});
+
+When("User fills in the receipt details and attempts to save with zero quantity", () => {
+    newReceiptCreationPage.createNewReceipt();
+    newReceiptCreationPage.fillReceiptDetails();
+    newReceiptCreationPage.addProductToOperationsTab('Laptop', 0);
+    newReceiptCreationPage.clickValidateButton();
+});
+
+Then("An error message should be displayed", () => {
+    newReceiptCreationPage.checkErrorMessage();
 });

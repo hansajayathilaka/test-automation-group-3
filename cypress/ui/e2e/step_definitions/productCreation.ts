@@ -6,6 +6,12 @@ Given("Create Product for receipt", () => {
   ProductCreationPage.createProduct("Laptop", "250000.00", "200000.00");
 })
 
+Given("Create Product for replenishment", () => {
+  ProductCreationPage.visit();
+  ProductCreationPage.createProduct("AReplenishment Test Product", "250000.00", "200000.00");
+})
+
+
 When("User visits the Product Creation Page", () => {
   ProductCreationPage.visit();
 });
