@@ -39,6 +39,14 @@ class ProcurementReplenishmentListPage {
         cy.get(".o_field_widget[name='qty_forecast']").find("span").should("have.text",`${valueForcast}`);
     }
 
+    specifyQuantity(attributeName: string, value: string) {
+        cy.get(`.o_field_widget[name='${attributeName}']`).type(value);
+    }
+
+    validateButton(buttonName: string) {
+        cy.contains("span", `${buttonName}`).should('be.visible');
+    }
+
 
 
 }

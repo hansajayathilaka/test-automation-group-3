@@ -33,6 +33,16 @@ Then('User should see the forecast quantity of the product', () => {
     procurementReplenishmentListPage.validateForecastQuantity("10.00");
 })
 
+When('User specifies the minimum quantity below the onhand quantity', () => {
+    procurementReplenishmentListPage.specifyQuantity("product_min_qty", "5");
+})
+
+Then('User should see only the Snooze button', () => {
+    procurementReplenishmentListPage.validateButton("Snooze");
+    })
+
+
+
 
 
 
