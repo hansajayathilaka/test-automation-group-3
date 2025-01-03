@@ -14,8 +14,8 @@ class DatabaseManagerPage {
                     cy.get('#login').type(data.adminEmail);
                     cy.get('#password').type(data.adminPassword);
                     cy.get('input.btn:nth-child(10)').click();
+                    this.visit();
                 });
-                this.visit();
             } else {
                 cy.log('Database already exists');
             }
