@@ -35,10 +35,15 @@ jobs:
       - name: Wait for services to start
         run: sleep 10
 
-      - name: Cypress run setup application
+      - name: Cypress run database setup
         uses: cypress-io/github-action@v6
         with:
-          spec: cypress/ui/e2e/features/databaseManager.feature cypress/ui/e2e/features/apps.feature
+          spec: cypress/ui/e2e/features/databaseManager.feature
+
+      - name: Cypress run app setup
+        uses: cypress-io/github-action@v6
+        with:
+          spec: cypress/ui/e2e/features/apps.feature
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
