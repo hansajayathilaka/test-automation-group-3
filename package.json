@@ -7,8 +7,7 @@
     "cypress:execution": "cypress run --spec cypress/*/e2e/features/*",
     "cypress:execution-ui": "cypress run --spec cypress/ui/e2e/features/*",
     "cypress:execution-api": "cypress run --spec cypress/api/e2e/features/*",
-    "cypress:execution-setup-database": "cypress run --spec cypress/ui/e2e/features/databaseManager.feature",
-    "cypress:execution-setup-app": "cypress run --spec cypress/ui/e2e/features/apps.feature"
+    "cypress:execution-setup": "cypress run --spec cypress/ui/e2e/features/databaseManager.feature cypress/ui/e2e/features/apps.feature"
   },
   "keywords": [],
   "author": "",
