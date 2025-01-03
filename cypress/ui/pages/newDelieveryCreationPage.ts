@@ -1,6 +1,9 @@
 class NewDeliveryCreationPage {
 
     visitNewDelieveryCreationPage() {
+        const uiBaseUrl = Cypress.env('UI_BASE_URL');
+        Cypress.config('baseUrl', uiBaseUrl);
+        
         // User clicks on the inventory icon. 
         cy.visit('/odoo/inventory');
         // User should navigate to the inventory window
