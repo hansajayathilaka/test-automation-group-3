@@ -1,5 +1,8 @@
 class ProductCreationPage {
   visit() {
+    const uiBaseUrl = Cypress.env("UI_BASE_URL");
+    Cypress.config("baseUrl", uiBaseUrl);
+
     // Open the Inventory Page
     cy.visit("/odoo/inventory");
 
@@ -11,7 +14,9 @@ class ProductCreationPage {
     cy.get("button.btn.btn-primary.o-kanban-button-new")
       .should("be.enabled")
       .click();
+  }
 
+  createNewProduct() {
     // Create a New Product
 
     // Adding the General Information
@@ -57,8 +62,10 @@ class ProductCreationPage {
     ).click();
   }
 
-  createNewProduct() {
-    cy.get('body > div.o_action_manager > div > div.o_content > div > article > main').should("be.visible");
+  verifyNewProduct() {
+    cy.get(
+      "body > div.o_action_manager > div > div.o_content > div > article > main"
+    ).should("be.visible");
     cy.log("Product Created Successfully");
   }
 }

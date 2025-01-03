@@ -7,4 +7,5 @@ When("User visits the Product Creation Page", () => {
 
 Then("User should be able to Create a New Product", () => {
   ProductCreationPage.createNewProduct();
+  ProductCreationPage.verifyNewProduct();
 });

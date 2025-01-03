@@ -1,5 +1,8 @@
 class ProductViewPage {
   visit() {
+    const uiBaseUrl = Cypress.env("UI_BASE_URL");
+    Cypress.config("baseUrl", uiBaseUrl);
+
     // Open the Inventory Page
     cy.visit("/odoo/inventory");
 
