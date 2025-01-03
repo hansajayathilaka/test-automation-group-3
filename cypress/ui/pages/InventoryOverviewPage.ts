@@ -1,4 +1,4 @@
-class initialInventoryOverviewPage {
+class InventoryOverviewPage {
   visit() {
     const uiBaseUrl = Cypress.env("UI_BASE_URL");
     Cypress.config("baseUrl", uiBaseUrl);
@@ -27,4 +27,4 @@ class initialInventoryOverviewPage {
   }
 }
 
-export default new initialInventoryOverviewPage();
+export default new InventoryOverviewPage();
