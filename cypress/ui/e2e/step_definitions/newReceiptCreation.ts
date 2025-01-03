@@ -22,8 +22,9 @@ Then("User should be able to see the receipt created successfully", () => {
 When("User fills in the receipt details and attempts to save with zero quantity", () => {
     newReceiptCreationPage.createNewReceipt();
     newReceiptCreationPage.fillReceiptDetails();
-    newReceiptCreationPage.addProductToOperationsTab('Cheese Cake', 0);
+    newReceiptCreationPage.addProductToOperationsTab('Laptop', 0);
     newReceiptCreationPage.clickValidateButton();
+    cy.wait(2000);
 });
 
 Then("An error message 'Invalid Stock Move' should be displayed", () => {

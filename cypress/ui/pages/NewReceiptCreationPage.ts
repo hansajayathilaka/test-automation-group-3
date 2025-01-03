@@ -90,10 +90,8 @@ class NewReceiptCreationPage {
   }
 
   checkErrorMessage() {
-    cy.get('#dialog_6 > div > div > div').should('be.visible');
-    cy.get('#dialog_6 > div > div > div > header > h4')
-      .should('contain', "Invalid operation");
-    cy.get('#dialog_6 > div > div > div > footer > button').click();
+    // cy.contains('h4.modal-title.text-break.flex-grow-1').should('contains.text', 'Invalid Operation');
+    cy.get('.modal-header > h1').contains('Invalid Operation').should('exist');
   }
 }
 
