@@ -10,7 +10,37 @@ class ProductCategoryListPage {
 
     checkProductCategoryListPage() {
         cy.get(".o_last_breadcrumb_item > span:nth-child(1)").should("have.text", "Product Categories");
-     
+    }
+
+    checkProductCategoryExists(name: string) {
+        cy.get("td.o_data_cell").contains(name).should("exist");
+    }
+
+    checkProductCategoryNotExists(name: string) {
+        cy.get("td.o_data_cell").contains(name).should("not.exist");
+    }
+
+    selectProductCategory(name: string) {
+        cy.get("td.o_data_cell").contains(name).parent().find("td.o_list_record_selector input").check();
+    }
+
+    selectAllProductCategoriesExceptDefaults() {
+        cy.get("td.o_data_cell").each(($el) => {
+            const name = $el.text();
+            if (!name.startsWith("All")) {
+                cy.wrap($el).parent().find("td.o_list_record_selector input").check();
+            }
+        });
+    }
+
+    deleteSelectedProductCategories() {
+        cy.get(".o_cp_action_menus").click();
+        cy.get(".o_popover > span.o-dropdown-item").contains("Delete").click();
+        cy.get(".modal-footer > button.btn-primary").click();
+    }
+
+    editProductCategory(name: string) {
+        cy.get("td.o_data_cell").contains(name).click();
     }
 }
 
