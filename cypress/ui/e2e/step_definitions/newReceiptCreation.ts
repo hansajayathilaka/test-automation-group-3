@@ -1,6 +1,5 @@
-import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import newReceiptCreationPage from '../../pages/NewReceiptCreationPage';
-
 
 When("User visits the Receipts create page", () => {
     newReceiptCreationPage.visitNewReceiptCreationPage();
