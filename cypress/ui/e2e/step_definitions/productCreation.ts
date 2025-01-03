@@ -1,6 +1,10 @@
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import ProductCreationPage from "../../pages/ProductCreationPage";
 
+Given("Create Product for receipt", () => { 
+  ProductCreationPage.createProduct("Laptop", "250000.00", "200000.00");
+})
+
 When("User visits the Product Creation Page", () => {
   ProductCreationPage.visit();
 });
