@@ -1,3 +1,4 @@
+@product-category
 Feature: Product Categories
 
   Scenario: Go to product category page

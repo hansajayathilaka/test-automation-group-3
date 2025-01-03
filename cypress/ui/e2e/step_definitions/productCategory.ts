@@ -40,7 +40,7 @@ When("User update the product category with name {string} to {string}", (oldName
     ProductCategoryCreatePage.clickSaveButton();
 });
 
-After(() => {
+After({ tags: "@product-category" }, () => {
     // Delete all product categories
     ProductCategoryListPage.visit();
     ProductCategoryListPage.selectAllProductCategoriesExceptDefaults();
