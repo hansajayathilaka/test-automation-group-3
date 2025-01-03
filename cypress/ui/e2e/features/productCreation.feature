@@ -14,3 +14,8 @@ Feature: Product Creation
     Given User logged in as an inventory admin
     When User visits the Product Creation Page
     Then User should be able to Create a New Product
+
+  Scenario: Delete a Product
+    Given User logged in as an inventory admin
+    When User visits the Product View
+    Then User should be able to Delete a Product
