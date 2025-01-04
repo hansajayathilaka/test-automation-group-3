@@ -1,15 +1,18 @@
 Feature: Get Books API
 
-    Scenario: Get all books without any authentication
-        When User sends a get books request
-        Then Unauthorized user receives an unautthorized response
-
-    Scenario: Get all books with user authentication
-        Given User is logged in as user
-        When User sends a get books request
-        Then User receives a list of books
+    Scenario: Get books with unauthorized user
+        Given "Unauthorized" user loged in
+        When Get books as "getAllRequest"
+        Then "@getAllRequest" request return status 401
     
-    Scenario: Get all books with admin authentication
-        Given User is logged in as admin
-        When User sends a get books request
-        Then User receives a list of books
+    Scenario: Get books with standard user
+        Given "Standard" user loged in
+        When Get books as "getAllRequest"
+        Then "@getAllRequest" request return status 200
+        And "@getAllRequest" request return a list of books
+
+    Scenario: Get books with admin user
+        Given "Admin" user loged in
+        When Get books as "getAllRequest"
+        Then "@getAllRequest" request return status 200
+        And "@getAllRequest" request return a list of books
