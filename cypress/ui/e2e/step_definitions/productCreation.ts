@@ -12,6 +12,5 @@ When("User visits the Product Creation Page", () => {
 
 Then("User should be able to Create a New Product", () => {
   ProductCreationPage.createProduct("Laptop", "250000.00", "200000.00");
-  // ProductCreationPage.createNewProduct();
   ProductCreationPage.verifyNewProduct();
 });

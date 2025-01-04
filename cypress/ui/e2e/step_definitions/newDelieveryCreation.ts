@@ -1,5 +1,6 @@
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import NewDeliveryCreationPage from '../../pages/newDelieveryCreationPage';
+import ProductViewPage from "../../pages/ProductViewPage";
 
 When("User navigates to the new delieveries page", () => {
     NewDeliveryCreationPage.visitNewDelieveryCreationPage();
