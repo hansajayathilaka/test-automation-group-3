@@ -12,9 +12,6 @@ When("User creates a new delievery", () => {
 
 Then("User should be able to see the delievery created successfully", () => {
     NewDeliveryCreationPage.checkDelieveryCreation();
-    ProductViewPage.visit();
-    ProductViewPage.selectAllProduct();
-    ProductViewPage.deleteSelectedProducts();
 })
 
 
