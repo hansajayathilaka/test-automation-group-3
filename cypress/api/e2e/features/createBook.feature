@@ -10,3 +10,9 @@ Feature: Create Book API
         When Create a book with title "Random Title 2" and author "Random Author 2" as "createRequest"
         Then "@createRequest" request return status 201
         And "@createRequest" request return title "Random Title 2" and author "Random Author 2"
+
+    Scenario: Create book with admin user
+        Given "Admin" user loged in
+        When Create a book with title "Random Title 3" and author "Random Author 3" as "createRequest"
+        Then "@createRequest" request return status 201
+        And "@createRequest" request return title "Random Title 3" and author "Random Author 3"
