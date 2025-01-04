@@ -12,8 +12,8 @@ Feature: Get Book API
         And Create a book with title "Random Title 8" and author "Random Author 8" as "createRequest"
         And "Standard" user loged in
         When "@createRequest" Get book as "getRequest"
-        # FIXME: This should return status 200
-        Then "@getRequest" request return status 403
+        # FIXME: Actual status 403
+        Then "@getRequest" request return status 200
 
     Scenario: Get book with admin user
         Given "Admin" user loged in
