@@ -1,3 +1,4 @@
+@product-creation
 Feature: Product Creation
 
   Scenario: Verify the Initial Inventory Overview

@@ -1,4 +1,4 @@
-import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
+import { After, Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import ProductCreationPage from "../../pages/ProductCreationPage";
 
 Given("Create Product for receipt", () => {
@@ -14,4 +14,10 @@ Then("User should be able to Create a New Product", () => {
   ProductCreationPage.createProduct("Laptop", "250000.00", "200000.00");
   // ProductCreationPage.createNewProduct();
   ProductCreationPage.verifyNewProduct();
+});
+
+After({ tags: "@product-creation" }, () => {
+  ProductCreationPage.visit();
+  ProductCreationPage.selectProduct();9 
+  // ProductCategoryListPage.deleteSelectedProduct();
 });

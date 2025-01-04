@@ -68,8 +68,14 @@ class ProductCreationPage {
     //Navigating to the Products Window
     cy.get(
       "body > div.o_action_manager > div > div > div.o_control_panel.d-flex.flex-column.gap-3.px-3.pt-2.pb-3 > div > div.o_control_panel_breadcrumbs.d-flex.align-items-center.gap-1.order-0.h-lg-100 > div.o_breadcrumb.d-flex.flex-row.flex-md-column.align-self-stretch.justify-content-between.min-w-0 > ol > li > a"
-    ).click();
+    ).click(); 
   }
+
+  selectProduct() {
+    cy.get("body > div.o_action_manager > div > div.o_content > div > article:nth-child(1)").click();
+  }
+
+  
 }
 
 export default new ProductCreationPage();
