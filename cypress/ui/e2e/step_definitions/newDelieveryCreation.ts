@@ -1,5 +1,6 @@
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import NewDeliveryCreationPage from '../../pages/newDelieveryCreationPage';
+import ProductViewPage from "../../pages/ProductViewPage";
 
 When("User navigates to the new delieveries page", () => {
     NewDeliveryCreationPage.visitNewDelieveryCreationPage();
@@ -11,6 +12,9 @@ When("User creates a new delievery", () => {
 
 Then("User should be able to see the delievery created successfully", () => {
     NewDeliveryCreationPage.checkDelieveryCreation();
+    ProductViewPage.visit();
+    ProductViewPage.selectAllProduct();
+    ProductViewPage.deleteSelectedProducts();
 })
 
 
