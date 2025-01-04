@@ -1,4 +1,4 @@
-name: E2E Testing UI
+name: E2E Testing API
 on:
   workflow_dispatch:
   push:
