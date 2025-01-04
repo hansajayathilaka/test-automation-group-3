@@ -33,7 +33,7 @@ async function setupNodeEvents(
 export default defineConfig({
   e2e: {
     video: true,
-    baseUrl: 'http://localhost:8069',
+    baseUrl: 'http://localhost:7081',
     specPattern: [
       "./cypress/ui/e2e/features/*.feature",
       "./cypress/api/e2e/features/*.feature",
