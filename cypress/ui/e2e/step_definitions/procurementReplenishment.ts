@@ -65,6 +65,14 @@ Then('User should see the Snooze button', () => {
     procurementReplenishmentListPage.validateButton("Snooze");
 })
 
+Then('User delete the new row from the replenishment list', () => {
+    procurementReplenishmentListPage.clickOnDeleteButton();
+})
+
+When('User click on the save button', () => {
+    procurementReplenishmentListPage.clickOnButton(".o_list_button_save");
+})
+
 
 
 

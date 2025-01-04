@@ -40,12 +40,20 @@ class ProcurementReplenishmentListPage {
 
     specifyQuantity(attributeName: string, value: string) {
         cy.get(`.o_field_widget[name='${attributeName}']`).type(value);
-        cy.get(`.o_field_widget[name='${attributeName}']`).type('{enter}');
-
     }
 
     validateButton(buttonName: string) {
         cy.contains("span", `${buttonName}`).should('be.visible');
+    }
+
+    clickOnDeleteButton() {
+        cy.get("body > div.o_action_manager > div > div.o_content.o_component_with_search_panel > div.o_list_renderer.o_renderer.table-responsive > table > thead > tr > th.o_list_record_selector.o_list_controller.align-middle.pe-1.cursor-pointer").click();
+        cy.get(".o_cp_action_menus").click();
+        cy.contains(".dropdown-item", "Delete").click();
+        cy.get("#dialog_0 > div > div > div > footer > button.btn.btn-primary").click();
+
+
+
     }
 
 }

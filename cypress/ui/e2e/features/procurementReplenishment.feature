@@ -38,17 +38,19 @@ Feature: Procurement Replenishment
     And User click on the create new replenishment button
     When User selects a product from the new row
     And User specifies the minimum quantity below the onhand quantity
+    And  User click on the save button
     Then User should see only the Snooze button
-    When User clicks on the discard button
-    Then User should see the new row removed from the replenishment list
 
 
   Scenario: Specify the Minimum quantity over onhand quantity for the replenishment record
     Given User logged in as an inventory admin
     And User visit the replenishment page
+    And User delete the new row from the replenishment list
     And User click on the create new replenishment button
     When User selects a product from the new row
     And User specifies the minimum quantity over the onhand quantity
+    And  User click on the save button
     Then User should see the Snooze button
     And User should see the Order button
     And User should see the Automate button
+
