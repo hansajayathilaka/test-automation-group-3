@@ -11,7 +11,7 @@ class ProductCreationPage {
     cy.openMenu("Products", "stock.menu_product_variant_config_stock");
 
     // Navigating to the Product Creation Page
-    cy.get("button.btn.btn-primary.o-kanban-button-new")
+    cy.get("body > div.o_action_manager > div > div.o_control_panel.d-flex.flex-column.gap-3.px-3.pt-2.pb-3 > div > div.o_control_panel_breadcrumbs.d-flex.align-items-center.gap-1.order-0.h-lg-100 > div.o_control_panel_main_buttons.d-flex.gap-1.d-empty-none.d-print-none > div > button")
       .should("be.enabled")
       .click();
   }
@@ -25,7 +25,7 @@ class ProductCreationPage {
 
   createProduct(name: string, price: string, cost: string) {
     // Navigating to the Product Creation Page
-    cy.get("button.btn.btn-primary.o-kanban-button-new")
+    cy.get("body > div.o_action_manager > div > div.o_control_panel.d-flex.flex-column.gap-3.px-3.pt-2.pb-3 > div > div.o_control_panel_breadcrumbs.d-flex.align-items-center.gap-1.order-0.h-lg-100 > div.o_control_panel_main_buttons.d-flex.gap-1.d-empty-none.d-print-none > div > button")
       .should("be.enabled")
       .click();
 
