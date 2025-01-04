@@ -14,7 +14,7 @@ class ProductViewPage {
   verifyInitialProjectView() {
     // Verifications in the Empty Products Page
     cy.log("Navigated to the Products View Page");
-    cy.get("button.btn.btn-primary.o-kanban-button-new").should("be.enabled");
+    cy.get("body > div.o_action_manager > div > div.o_control_panel.d-flex.flex-column.gap-3.px-3.pt-2.pb-3 > div > div.o_control_panel_breadcrumbs.d-flex.align-items-center.gap-1.order-0.h-lg-100 > div.o_control_panel_main_buttons.d-flex.gap-1.d-empty-none.d-print-none > div > button").should("be.enabled");
     cy.log("New Button is Enabled");
     // cy.get(".o_view_nocontent p").then(($pTags) => {
     //   expect($pTags.eq(0)).to.contain.text(
