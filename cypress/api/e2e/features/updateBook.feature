@@ -5,21 +5,21 @@ Feature: Update Book API
         And Create a book with title "Random Title 10" and author "Random Author 10" as "createRequest"
         And "Unauthorized" user loged in
         When "@createRequest" Update book with title "Random Title 10 Updated" and author "Random Author 10 Updated" as "updateRequest"
-        # FIXME: This should return status 403
-        Then "@updateRequest" request return status 200
+        # FIXME: Actual status 200
+        Then "@updateRequest" request return status 403
         Given "Admin" user loged in
         When "@createRequest" Get book as "getRequest"
-        # FIXME: This should return title "Random Title 10"
-        # FIXME: This should return author "Random Author 10"
-        Then "@getRequest" request return title "Random Title 10 Updated" and author "Random Author 10 Updated"
+        # FIXME: Actual title "Random Title 10 Updated"
+        # FIXME: Actual author "Random Author 10 Updated"
+        Then "@getRequest" request return title "Random Title 10" and author "Random Author 10"
 
     Scenario: Update book with standard user
         Given "Admin" user loged in
         And Create a book with title "Random Title 11" and author "Random Author 11" as "createRequest"
         And "Standard" user loged in
         When "@createRequest" Update book with title "Random Title 11 Updated" and author "Random Author 11 Updated" as "updateRequest"
-        # FIXME: This should return status 200
-        Then "@updateRequest" request return status 403
+        # FIXME: Actual status 403
+        Then "@updateRequest" request return status 200
         Given "Admin" user loged in
         When "@createRequest" Get book as "getRequest"
         Then "@getRequest" request return title "Random Title 11" and author "Random Author 11"

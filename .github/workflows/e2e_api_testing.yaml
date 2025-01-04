@@ -1,4 +1,4 @@
-name: E2E Testing
+name: E2E Testing API
 on:
   workflow_dispatch:
   push:
@@ -9,7 +9,7 @@ on:
       - main
       - dev
 jobs:
-  e2e_test:
+  e2e_test_api:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -30,49 +30,35 @@ jobs:
           echo "API_USER_PASSWORD=password" >> .env
 
       - name: Start services
-        run: docker compose --file ./src/docker-compose.yaml up -d
+        run: docker compose --file ./src/docker-compose.yaml up api -d
 
       - name: Wait for services to start
         run: sleep 10
 
-      - name: Cypress run database setup
-        uses: cypress-io/github-action@v6
-        with:
-          spec: cypress/ui/e2e/features/databaseManager.feature
-
-      - name: Cypress run app setup
-        uses: cypress-io/github-action@v6
-        with:
-          spec: cypress/ui/e2e/features/apps.feature
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
-      
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: cypress/reports/cucumber-report.html
+          spec: cypress/api/e2e/features/*.feature
 
       - name: Upload screenshots
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: screenshots
+          name: screenshots-api
           path: cypress/screenshots
 
       - name: Upload videos
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: videos
+          name: videos-api
           path: cypress/videos
       
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: reports
+          name: reports-api
           path: cypress/reports
 
       - name: Stop services
