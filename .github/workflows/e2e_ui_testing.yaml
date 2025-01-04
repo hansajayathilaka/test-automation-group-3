@@ -9,7 +9,7 @@ on:
       - main
       - dev
 jobs:
-  e2e_test:
+  e2e_test_ui:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
