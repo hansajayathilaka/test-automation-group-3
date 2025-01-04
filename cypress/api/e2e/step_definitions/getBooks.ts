@@ -1,24 +1,8 @@
-import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
-import getBooks from "../../pages/getBooksRequest"
+import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import getBooks from "../../requests/getBooksRequest"
 import { get } from "http";
 
 
-Given("User is logged in as user", () => {
-    getBooks.loginAsUser();
+When("Get books as {string}", (reqId: string) => {
+    getBooks.getBooksApi(reqId);
 });
-
-Given("User is logged in as admin", () => {
-    getBooks.loginAsAdmin();
-});
-
-When("User sends a get books request", (method: string, urlPath: string) => {
-    getBooks.getBooksApi();
-});
-
-Then("Unauthorized user receives an unautthorized response", (statusCode: number) => {
-    getBooks.checkGetBooksReturnUnauthorized();
-});
-
-Then("User receives a list of books", () => {
-    getBooks.checkGetBooksReturnListOfBooks();
-})
